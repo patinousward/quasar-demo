@@ -12,7 +12,7 @@ public class FriberTest {
     public static void main(String[] args) throws InterruptedException {
         CountDownLatch count  = new CountDownLatch(10000);
         Stopwatch stopWatch = Stopwatch.createStarted();
-        IntStream.range(0,10000).forEach(i-> new Fiber() {
+        IntStream.range(0,10000).forEach(i-> new Fiber<String>() {
             @Override
             protected String run() throws SuspendExecution, InterruptedException {
                 Strand.sleep(1000 );
